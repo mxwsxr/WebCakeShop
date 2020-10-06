@@ -9,18 +9,19 @@ namespace BethanysPieShop.Controllers
 {
     public class PieController : Controller
     {
-        private readonly IPieRepository pieRepository;
-        private readonly ICategoryRepository categoryRepository;
+        private readonly IPieRepository _pieRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
         public PieController(IPieRepository pieRepository, ICategoryRepository categoryRepository)
         {
-            this.pieRepository = pieRepository;
-            this.categoryRepository = categoryRepository;
+            _pieRepository = pieRepository;
+            _categoryRepository = categoryRepository;
         }
 
         public ViewResult List()
         {
-            return View(pieRepository.AllPies);
+            ViewBag.CurrentCategory = "Cheese cakes";
+            return View(_pieRepository.AllPies);
         }
     }
 }

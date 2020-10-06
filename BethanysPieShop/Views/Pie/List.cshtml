@@ -1,9 +1,8 @@
-﻿@model PiesListViewModel
+﻿@model IEnumerable<BethanysPieShop.Models.Pie>
 
+<h1>@ViewBag.CurrentCategory</h1>
 
-<h1>@Model.CurrentCategory</h1>
-
-@foreach (var pie in Model.Pies)
+@foreach (var pie in Model)
 {
     <div class="col-sm-4 col-lg-4 col-md-4">
         <div class="thumbnail">
