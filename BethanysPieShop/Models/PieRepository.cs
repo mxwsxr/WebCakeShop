@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace BethanysPieShop.Models
 {
-    public class PieRepository : IPieRepository
+    public class PieRepository:IPieRepository
     {
         private readonly AppDbContext _appDbContext;
-
         public PieRepository(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
@@ -19,7 +18,7 @@ namespace BethanysPieShop.Models
         {
             get
             {
-                return _appDbContext.Pies.Include(c => c.Category);
+                return _appDbContext.Pies.Include(c=>c.Category);
             }
         }
 
@@ -27,13 +26,13 @@ namespace BethanysPieShop.Models
         {
             get
             {
-                return _appDbContext.Pies.Include(c => c.Category).Where(p => p.IsPieOfTheWeek);
+                return _appDbContext.Pies.Include(c => c.Category).Where(p=>p.IsPieOfTheWeek);
             }
         }
 
         public Pie GetPieById(int pieId)
         {
-            return _appDbContext.Pies.FirstOrDefault(p => p.PieId == pieId);
+            return _appDbContext.Pies.FirstOrDefault(p=>p.PieId==pieId);
         }
     }
 }
