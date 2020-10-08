@@ -17,10 +17,10 @@ namespace BethanysPieShop
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IPieRepository, MockPieRepository>();
-            services.AddScoped<ICategoryRepository, MockCategoryRepository>();
+            services.AddControllersWithViews();//services.AddMvc(); would also work still
 
-            services.AddControllersWithViews();
+            services.AddScoped<ICategoryRepository, MockCategoryRepository>();
+            services.AddScoped<IPieRepository, MockPieRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -32,7 +32,7 @@ namespace BethanysPieShop
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles(); 
 
             app.UseRouting();
 
